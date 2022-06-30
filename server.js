@@ -5,6 +5,11 @@ const bodyParser = require("body-parser");
 const { body, validationResult, check } = require("express-validator");
 const port = 3000;
 
+const sql = require("./config/database");
+sql.query("show tables", (eer, result) => {
+  console.log(result);
+});
+
 // setup Session for system
 server.use(
   expressSession({
